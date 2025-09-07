@@ -1,27 +1,35 @@
+from dictionary import Dictionary
+
 class Translator:
 
-    def __init__(self):
-        pass
+    def __init__(self, dict = Dictionary()):
+        self.dict = dict
 
     def printMenu(self):
-        # 1. Aggiungi nuova parola
-        # 2. Cerca una traduzione
-        # 3. Cerca con wildcard
-        # 4. Exit
-        pass
+        print("-----------------------------\n"
+              "Translator Alien-Italian\n"
+              "-----------------------------\n"
+              "1. Aggiungi nuova parola\n"
+              "2. Cerca una traduzione\n"
+              "3. Cerca con wildcard\n"
+              "4. Stampa il dizionario\n"
+              "5. Exit\n"
+              "-----------------------------\n")
 
     def loadDictionary(self, dict):
-        # dict is a string with the filename of the dictionary
-        pass
+        self.dict.loadDictionary()
 
     def handleAdd(self, entry):
         # entry is a tuple <parola_aliena> <traduzione1 traduzione2 ...>
-        pass
+        self.dict.addWord(entry)
 
     def handleTranslate(self, query):
         # query is a string <parola_aliena>
-        pass
+        self.dict.translate(query)
 
     def handleWildCard(self,query):
         # query is a string with a ? --> <par?la_aliena>
-        pass
+        self.dict.translateWordWildCard(query)
+
+    def handlePrint(self):
+        self.dict.print()
